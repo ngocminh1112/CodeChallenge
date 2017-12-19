@@ -8,7 +8,7 @@ namespace GuidantFinancial.WebAPI.Models
 {
     public class UserRepository
     {
-        private List<User> _data = new List<User>()
+        private static List<User> _data = new List<User>()
         {
             new User { Id = 1, Name = "Will", Point = 8},
             new User { Id = 2, Name = "Jonh", Point = 8},

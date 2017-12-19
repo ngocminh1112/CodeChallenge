@@ -48,5 +48,21 @@ namespace GuidantFinancial.WebAPI.Tests.Models
             Assert.AreEqual(countBeforeAdding, 3);
             Assert.AreEqual(countAfterAdding, 4);
         }
+
+        [TestMethod]
+        public void Should_return_correct_user_after_adding()
+        {
+            var repository = new UserRepository();
+            var newUser = new User
+            {
+                Name = "Smile",
+                Point = 4
+            };
+            var countBeforeAdding = repository.GetAll().Count;
+            var actual = repository.Add(newUser);
+            var user = repository.Get(countBeforeAdding + 1);
+            Assert.AreEqual(countBeforeAdding, 3);
+            Assert.AreEqual(user.Name, newUser.Name);
+        }
     }
 }
